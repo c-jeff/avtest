@@ -1,0 +1,81 @@
+main {
+  height: 100vh;
+}
+.rating-container {
+  background-color: var(--second-bg);
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.rating-content {
+  width: 1000px;
+  background-color: white;
+  border: 1px solid transparent ;
+  padding: 20px 50px;
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.rating-content h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.rating-logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.rating-logo img {
+  width: 100px;
+}
+.talking-container, .talking-border, .talking-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.talking-container {
+  height: 100%;
+  flex-direction: column;
+}
+.talking-content {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+}
+.talking-content:hover {
+  border: 5px solid var(--main-color);
+  background-color: var(--third-color) ;
+}
+.talking-border {
+  cursor: pointer;
+  width: 95%;
+  height: 95%;
+  border: 5px solid var(--main-color);
+  border-radius: 50%;
+  background-color: white;
+}
+
+.talking-container img {
+  width: 90%;
+}
+
+.hide {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .rating-content {
+    padding: 20px 25px;
+  }
+  .rating-logo h2 {
+    font-size: 21px;
+  }
+  .talking-content {
+    width: 200px;
+    height: 200px;
+  }
+}

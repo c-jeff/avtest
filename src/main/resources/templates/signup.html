@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:fragment="head">
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--Responsive-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Titulo de pagia -->
+<title>Registrarse</title>
+
+<!--CSS Bootstrap-->
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/solid.min.css}" rel="stylesheet">
+<link rel="shortcut icon" href="img/logo.ico" type="image/x-icon">
+
+<!--Application CSS-->
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet" th:href="@{/css/home.css}">
+<link rel="stylesheet" th:href="@{/css/index.css}">
+<link rel="stylesheet" th:href="@{/css/nabvar.css}">
+<link rel="stylesheet" th:href="@{/css/footer.css}">
+<link rel="stylesheet" th:href="@{/css/session.css}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+</head>
+
+<body>
+
+  <header th:replace="layout/layout :: header"></header>
+
+  <main>
+   
+    <div class="session-container">
+      <div class="session-content">
+        <h2>Bienvenido</h2>
+        <div class="session-content__signin">
+          <div class="session-content__signin-session">
+            <p class="regular">¿Ya tienes cuenta?</p>
+            <a th:href="@{/login}" class="session-button signup">Ingresar</a>
+          </div>
+          <div id="line"></div>
+          <div class="session-content__signin-session">
+            <p class="regular">Inicia sesión con tu cuenta</p>
+            <input class="session-input" placeholder="Nombres" type="text">
+            <input class="session-input" placeholder="Apellidos" type="text">
+            <input class="session-input" placeholder="Celular" type="text">
+            <input class="session-input" placeholder="Correo electronico" type="email">
+            <input class="session-input" placeholder="Contraseña" type="password">
+            <div class="session-content__signin-conditions">
+              <ul>
+                <li class="session-list">
+                  <div class="session-list_item">
+                    <input class="checkbox" type="checkbox">
+                    <p>
+                      He leido y acepto los
+                      <a class="session-anchor" href="">Terminos y Condiciones</a>
+                      de Avinka
+                    </p>
+                  </div>
+                  <div class="session-list_item">
+                    <input class="checkbox" type="checkbox">
+                    <p>
+                      He leido y acepto los
+                      <a class="session-anchor" href="">la Política de Privacidad</a>
+                      de Avinka
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <button class="session-button signin">Registrate</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+   
+   
+   
+  </main>
+	<footer th:replace = "layout/layout :: footer"></footer>
+ 	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+
+</html>

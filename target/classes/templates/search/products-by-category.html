@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	
+	
+		
+	<main>
+	<div class="container">
+	<section class="container mt-4">
+		
+		<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+		  <h1></h1>
+		  <ol class="breadcrumb">
+		  
+		    <li class="breadcrumb-item">BÚSQUEDA</li>
+		    <li class="breadcrumb-item">CATEGORÍA</li>
+		    <li class="breadcrumb-item active" aria-current="page">RESULTADO DE LA CATEGORÍA <span th:text="${productbycategorySearch.name}"></span> </li>
+		  </ol>
+		 <!--  <a th:href="@{/}" class="btn btn-primary mt-4"> <i class="fas fa-angle-double-left" ></i> Return</a>  -->
+		</nav>
+		<h1></h1>
+		
+		<div class="main-products-container">
+			<div class="main-product-content">
+				<h2>Productos destacados</h2>
+				<div id="products" class="products" th:each="category : ${productbycategoryFound}">
+
+					<div class="product-item" th:each="product : ${category.products}"  onclick="redirigirPagina()" >
+						
+						<div class="product-img-container">
+							<img class="product-img" src="/assets/images/products/PavoMarinado.png">
+						</div>
+						
+						<div class="product-favorite">
+							<div class="favorite-icon">
+								<i class="fa-regular fa-heart"></i>
+							</div>
+						</div>
+						<p id="name" th:text="${product.name}"></p>
+						<p id="description" th:text="'Description: '+${product.description}"></p>
+						<p id="price" th:text="'S/ '+${product.price}"></p>
+						<p id="igv">Incluye IGV</p>
+						<button class="product-add">
+							<a style="color:#FFFFFF" th:href="@{'/products2/' + ${product.id} }">
+							+ 
+						</a>
+						</button>
+						
+					</div>
+
+
+				</div>
+
+			</div>
+		</div>
+		</div>
+		
+		<!--
+		<div class="row mb-100">
+		  
+		  <div th:each="category : ${productbycategoryFound}"  class="col-sm-100">
+		  	<div th:each="product : ${category.products}" >
+		    <div class="card">
+		      <div class="card-header">
+		      <h5 class="card-text" th:text="${product.name}">Special title treatment</h5>
+		      </div>
+		      <div class="card-body">
+			   <h5 class="card-title" th:text="'Category: '+${product.category.name}">With supporting text below as a natural lead-in to additional content.</h5>
+			    <h6 class="card-text" th:text="'Description: '+${product.description}"></h6>
+			    <p class="card-text" th:text="'Stock: '+${product.stock}">.</p>
+			    <p class="card-text" th:text="'Description: '+${product.description}"></p>
+			    <p class="card-text" th:text="'Price: '+${product.price}"></p>
+			    <p class="card-text" th:text="'Price: '+${product.price}"></p>
+			    <p class="card-text" th:text="'Tipo de envase: '+${product.tipoEnvase}"></p>
+		        <p class="card-text" th:text="'Tiempo de vida útil: '+${product.tiempoVida}"></p>
+		        <p class="card-text" th:text="'Almacenamiento: '+${product.almacenamiento}"></p>
+		        <p class="card-text" th:text="'Reconstitución: '+${product.reconstitucion}"></p>
+		        <p class="card-text" th:text="'Forma de consumo y consumidor final: '+${product.consumidorFinal}"></p>
+			    
+		        <!--  <a th:href="@{'/shows/' + ${show.id} }" class="btn btn-outline-info"> <i class="fas fa-search"></i> Search</a>
+		        <h1></h1>
+		      </div>
+		      <h1></h1>
+		       </div>
+		       <h1></h1>
+		    </div>
+		  </div>
+
+		</div>
+		
+		  -->
+		</section>
+		</div>
+		
+		
+		</main>
+	<footer th:replace="layout/layout :: footer"></footer>
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	</body>
+</html>
+		

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:fragment="head">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!--Responsive-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cobertura</title>
+
+<!--CSS Bootstrap-->
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/solid.min.css}" rel="stylesheet">
+<link rel="shortcut icon" href="img/logo.ico" type="image/x-icon">
+
+<!--Application CSS-->
+<link rel="stylesheet" th:href="@{/css/home.css}">
+<link rel="stylesheet" th:href="@{/css/index.css}">
+<link rel="stylesheet" th:href="@{/css/nabvar.css}">
+<link rel="stylesheet" th:href="@{/css/map.css}">
+<link rel="stylesheet" th:href="@{/css/footer.css}">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+</head>
+
+
+
+
+
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+
+
+		<main>
+		<div class="container">
+		<section class="container mt-4">
+
+	
+		<div class="map-container">
+
+			<div class="map-content">
+				<div class="map-logo">
+					<h2>Nuestra Cobertura</h2>
+					<img src="/assets/images/avinka-logo-alternativo.webp" alt="">
+				</div>
+				<div class="map-image-container">
+					<div class="map-image">
+						<a
+							href="https://www.google.com/maps/search/avinka/@-12.1611645,-77.0020915,13z/data=!3m1!4b1"
+							target="_blank"> <img src="/assets/images/new_map.jpg"
+							alt="location">
+						</a>
+					</div>
+
+				</div>
+
+				<div ><h5>Callao:</h5>
+					<p> Bellavista, La Perla, Santa Marina Norte, Santa Marina Sur</p>
+					
+				<h5>Lima:</h5>
+					<p>Ate Salamanca - Mayorazgo), Barranco, Breña, Chorrillos, Comas (Condominios y Santa Luzmila), El Agustino (Condominios), Jesús María, La Molina, La Victoria (Balconcillo y Santa Catalina), Cercado de Lima, Lince, Los Olivos, Magdalena del Mar, Miraflores, Puente Piedra (Shangri La), El Rímac (Zona Centrica), San Borja, San Isidro, San Luis, San Martin de Porres (Zona céntrica), San Miguel, Santa Anita, Santiago de Surco, Surquillo</p>
+				</div>	
+					
+				
+				
+				
+
+			</div>
+
+
+
+
+		</div>
+		</section>
+		</div>
+
+	</main>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<header th:replace="layout/layout :: header"></header>
+<body>
+	
+	
+	<main>
+	<div class="container">
+	<section class="container mt-4">
+	
+	<div class="container">
+	<div class="card" style="width: 40rem;">
+	  <div class="card-header">
+	    New Product
+	  </div>
+	  <div class="card-body">
+	  	<form th:action="@{/products/savenew}" th:object="${productNew}" method="post" ectype="multipart/form-data">
+		  <div class="mb-3">
+		    <label for="name" class="form-label">Name</label>
+		    <input type="text" class="form-control" th:field="*{name}" placeholder="Name of Product" >
+		  	<label for="name" class="form-label">Description</label>
+		    <input type="text" class="form-control" th:field="*{description}" placeholder="Description of product:" >
+		  	 <label for="name" class="form-label">Stock</label>
+		    <input type="text" class="form-control" th:field="*{stock}" placeholder="Stock of the product:" >
+		  	 <label for="name" class="form-label">Price</label>
+		    <input type="text" class="form-control" th:field="*{price}" placeholder="Price of show" >
+		     <label for="name" class="form-label">Category</label>
+		     <select th:field="*{category}" class="form-control">
+				      	<option th:each="category : ${categories}" 
+				      		th:value="${category.id}" 
+				      		th:text="${category.name}" ></option>
+			 </select>
+			 <label for="name" class="form-label">Tipo de envase: </label>
+		    <input type="text" class="form-control" th:field="*{tipoEnvase}" placeholder="Tipo de envase:" >
+		     <label for="name" class="form-label">Tiempo de vida útil: </label>
+		    <input type="text" class="form-control" th:field="*{tiempoVida}" placeholder="Tiempo de vida útil:" >
+		    <label for="name" class="form-label">Almacenamiento: </label>
+		    <input type="text" class="form-control" th:field="*{almacenamiento}" placeholder="Almacenamiento:" >
+		    <label for="name" class="form-label">Reconstitucion: </label>
+		    <input type="text" class="form-control" th:field="*{reconstitucion}" placeholder="Reconstitución:" >
+		    <label for="name" class="form-label">Formas de consumo y consumidor Final: </label>
+		    <input type="text" class="form-control" th:field="*{consumidorFinal}" placeholder="Consumidor final:" >
+		    <!-- 
+		    <div class="form-group row">
+		    	<label class="col-md-2" for="imagen"> Imagen </label>
+		    	<input type="file" name="image" class="form-control form-control-sm col-md-6" id="imagen" > 
+		    	
+		    </div>
+		      -->
+		  </div>
+
+		  <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save</button>
+		</form>
+		<br>
+  		<a th:href="@{/products}" class="btn btn-outline-primary"> <i class="fas fa-angle-double-left"></i> Return</a>
+	  </div>
+	</div>
+	<h1></h1>
+	
+	</div>
+	</section>
+	</div>
+	
+	</main>
+
+
+	<footer th:replace = "layout/layout :: footer"></footer>
+ 	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

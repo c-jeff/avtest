@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="head">
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!--Responsive-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avinka</title>
+
+<!--CSS Bootstrap-->
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/solid.min.css}" rel="stylesheet">
+<link rel="shortcut icon" href="img/logo.ico" type="image/x-icon">
+
+<!--Application CSS-->
+
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+	crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" th:href="@{/css/home.css}">
+<link rel="stylesheet" th:href="@{/css/index.css}">
+<link rel="stylesheet" th:href="@{/css/nabvar.css}">
+<link rel="stylesheet" th:href="@{/css/footer.css}">
+<link rel="stylesheet" th:href="@{/css/reclamaciones.css}">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+</head>
+
+
+<body>
+
+	<!-- NAVBAR -->
+
+	<header>
+
+		<!-- ASSISTANT -->
+		<div class="assistant-container">
+			<a th:href="@{/recomendacion}" class="assistant-rating"> ¿Desea brindar
+				alguna sugerencia? </a>
+			<div id="assistant" class="assistant-border">
+				<div class="assistant-content">
+					<i class="fa-solid fa-microphone"></i>
+				</div>
+			</div>
+		</div>
+
+		<nav class="navbar-container">
+			<div class="navbar-content">
+				<div class="navbar-medias-container">
+					<div class="navbar-medias-container__mail">
+						<i class="fa-regular fa-envelope"></i>
+						<p>deliveryavianka@santaelena.com.pe</p>
+					</div>
+					<div class="navbar-medias-container__medias">
+						<p>Siguenos en:</p>
+						<a href="https://www.facebook.com/Avinka.pe/" target="_blank">
+							<i class="fa-brands fa-square-facebook"></i>
+						</a> <a href="https://www.instagram.com/avinka_pe/" target="_blank">
+							<i class="fa-brands fa-instagram"></i>
+						</a> <a
+							href="https://www.youtube.com/channel/UCF3BNWVEDTUCIhC1RqVBy1Q"
+							target="_blank"> <i class="fa-brands fa-youtube"></i>
+						</a>
+					</div>
+				</div>
+
+				<div class="navbar-options">
+					<div class="navbar-options__content">
+						<div class="navbar-options__content-logo">
+							<div id="input-container" class="lg-input-container">
+								<!-- 
+								<form class="d-flex" th:action="@{/search/products}"
+									th:object="${productSearch}" method="get">
+									<input class="form-control me-2" type="search"
+										th:field="*{name}" placeholder="¿Qué producto estás buscando?"
+										aria-label="Search">
+									<button class="btn btn-light" type="submit">Buscar</button>
+								</form>
+
+								<!--  <input class="lg-input" type="text" placeholder="¿Qué producto estás buscando?">
+                <i id="search-close" class="fa-solid fa-xmark" style="display: none;"></i> -->
+							</div>
+							<div id="burger-btn" class="lg-burguer">
+								<i id="fa-bars" class="fa-sharp fa-solid fa-bars"
+									style="display: block;"></i> <i id="fa-xmark"
+									class="fa-solid fa-xmark" style="display: none;"></i>
+							</div>
+							<a th:href="@{/}"> <img src="/assets/images/logo.png"
+								alt="">
+							</a>
+							
+							
+							
+							
+							<div class="lg-seacher">
+								<i id="search-open" class="fa-solid fa-magnifying-glass"
+									style="display: block;"></i>
+							</div>
+						</div>
+						<div class="navbar-options-content__searcher" >
+						
+						<form  class="d-flex " th:action="@{/search/products}"
+									th:object="${productSearch}" method="get">
+									<input class="form-control me-2" type="search"
+										th:field="*{name}" placeholder="¿Qué producto estás buscando?"
+										aria-label="Search">
+									<button class="btn btn-light" type="submit">Buscar</button>
+									
+								
+								</form>
+							<!--  <form class="d-flex " th:action="@{/search/products}"
+									th:object="${productSearch}" method="get">
+									<input class="form-control me-2" type="search"
+										th:field="*{name}" placeholder="¿Qué producto estás buscando?"
+										aria-label="Search">
+									<button class="btn btn-light" type="submit">Buscar</button>
+								</form>
+							-->
+							<!--  
+							<input id="searcher" type="text"
+								placeholder="¿Qué producto estás buscando?"> <span>
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</span>
+							-->
+						</div>
+					</div>
+
+					<div id="id-navbar-options" class="navbar-options__options">
+						<a id="map-ref" th:href="@{/map}" class="map-button">Cobertura
+						
+						</a>
+					
+					<!-- 
+						<div class="nav-item" sec:authorize="isAnonymous()"><a
+							class="nav-link active" aria-current="page" th:href="@{/login}">Iniciar
+								Sesión</a></div>
+								 -->
+		
+
+						<div class="nav-item dropdown" sec:authorize="isAuthenticated()">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<i class="fas fa-user-circle"></i> <span
+								sec:authentication="name">Profile</span>
+
+						</a>
+
+
+<!-- 
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown" >
+								<li><a class="dropdown-item" th:href="@{/logout}">Cerrar
+										Sesión</a></li>
+							</ul>
+							 -->
+						</div>
+
+
+						<div class="lg-option-container" sec:authorize="isAnonymous()" >
+							<div id="user-icon" class="options-icon-container">
+								<a th:href="@{/login}"> <i class="fa-solid fa-user"></i>
+								</a>
+							</div>
+							<p class="lg-option-text">Ingresar</p>
+						</div>
+						
+						<div class="lg-option-container" sec:authorize="isAuthenticated()" >
+							<div id="user-icon" class="options-icon-container">
+								<a th:href="@{/logout}"> <i class="fa-solid fa-right-from-bracket"></i>
+								</a>
+							</div>
+							<p class="lg-option-text">Ingresar</p>
+						</div>
+						
+						
+						
+
+
+						
+
+
+						<div class="lg-option-container">
+							<div id="pedidos-icon" class="options-icon-container">
+								<a href="#"> <i class="fa-solid fa-box"></i>
+								</a>
+							</div>
+							<p class="lg-option-text">Pedidos</p>
+						</div>
+
+
+						<div class="lg-option-container">
+							<div id="carrito-icon" class="options-icon-container">
+								<a href="#"> <i class="fa-solid fa-cart-shopping"></i>
+								</a>
+							</div>
+							<p class="lg-option-text">Carrito</p>
+						</div>
+					</div>
+
+					<div id="id-categories" class="lg-categories-container">
+						<div class="lg-categories">
+							<a href="./map.html" class="lg-cobertura"> <i
+								class="fa-solid fa-location-dot"></i>
+								<p>Cobertura</p>
+							</a>
+
+							<p class="title">Categorías</p>
+							<div class="lg-categories-options">
+								<div class="lg-categorie-item">
+									<p>Preparados</p>
+									<div>
+										<i class="fa-sharp fa-solid fa-angle-up"></i>
+									</div>
+								</div>
+								<div class="lg-categorie-item">
+									<p>Huevos</p>
+									<div>
+										<i class="fa-sharp fa-solid fa-angle-up"></i>
+									</div>
+								</div>
+								<div class="lg-categorie-item">
+									<p>Complementos</p>
+									<div>
+										<i class="fa-sharp fa-solid fa-angle-up"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="navbar-categories">
+					<div class="navbar-categories__options">
+						<div id="options">
+							<a th:href="@{/listAllProductByCategory}" class="option-selected"
+								value="option1" selected>
+								<p>Todas las categorias</p>
+							</a>
+							<div class="hide-option">
+								<a value="option2">
+									<p>OFERTAS</p>
+								</a> <a value="option3">
+									<p>Preparados</p>
+								</a> <a value="option3">
+									<p>Huevos</p>
+								</a> <a value="option3">
+									<p>Complementos</p>
+								</a>
+							</div>
+						</div>
+					</div>
+					
+					<div class="navbar-categories" sec:authorize="hasRole('ROLE_ADMIN')">
+					<div class="navbar-categories__options">
+						<div id="options">
+							<a class="option-selected"
+								value="option1" selected>
+								<p>Base de datos</p>
+							</a>
+							<div class="hide-option">
+								<a value="option3" href="/products">
+									<p>Productos</p>
+								</a> <a value="option3" href="/categories">
+									<p>Categorías</p>
+								</a>
+							</div>
+						</div>
+					</div>
+			<!--  		
+					<div class="navbar-categories__categories">
+
+						<li class="nav-item dropdown"
+							sec:authorize="hasRole('ROLE_ADMIN')">
+							<div class="navbar-categories">
+								<div class="navbar-categories__options">
+									<div id="options">
+										<a class="option-selected" value="option1" selected>
+											<p>Base de datos</p>
+										</a>
+										<div class="hide-option">
+											<a value="option3" href="/products">
+												<p>Productos</p>
+											</a> <a value="option3" href="/categories">
+												<p>Categorías</p>
+											</a>
+
+										</div>
+									</div>
+								</div>
+							-->
+								<div class="navbar-categories__categories">
+						</li> <a class="categorie-selected" href="#">OFERTAS</a> <a
+							class="a-categorie" href="#">Preparados</a> <a
+							class="a-categorie" href="#">Huevos</a> <a class="a-categorie"
+							href="#">Complementos</a>
+					</div>
+				</div>
+		</nav>
+	</header>
+
+	<!-- Liliana ^ -->
+	<!--  
+	<header th:fragment="header">
+	<!--navbar1-	
+	<div>
+	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #33cc33" >
+		
+		<img class="d-inline-block align-middle" src="/images/logo.png" alt="Logo" width="130px">
+			
+		
+		
+		
+		<div class="buscador" >
+			
+			<input type="search" placeholder="¿Qué producto estás buscando?" size="130" spellcheck="false"  class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" >
+			
+			 
+	 	 </div>
+	
+	 	 <div class="menu collapse navbar-collapse d-md-flex justify-content-around" id="navbarSupportedContent"> 
+	 	 	<ul class="navbar-nav me-auto mb-2 m-md-0 mb-lg-0">
+	 	 		
+	 	 		<li class="nav-item" sec:authorize="isAnonymous()">
+	                   <a class="nav-link active" aria-current="page" th:href="@{/login}">Iniciar Sesión</a>
+	            </li>
+	            <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
+	                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	                   		<i class="fas fa-user-circle"></i> 
+	                       		<span sec:authentication="name">Profile</span>
+	                    </a>
+	                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+	                        <li><a class="dropdown-item" th:href="@{/logout}">Cerrar Sesión</a></li>
+	                   </ul>
+	             </li>
+	 	 	
+	 	 	</ul>
+	 	 	</div>
+ 	</nav>
+	</div>	
+<div>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">Todas las categorías |</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+ 			</button>
+	<div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+    	<li class="nav-item dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
+	    	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	        	Base de datos
+	        </a>
+	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+	        <li><a class="dropdown-item" href="/categories">Categorias</a></li>
+	        <li><a class="dropdown-item" href="/products">Productos</a></li>
+	 </ul>
+	    </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Ofertas <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Preparados</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Huevos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Complementos</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+		
+		</div>
+		
+	</header>  
+
+-->
+
+
+	<!-- Footer -->
+	<footer th:fragment="footer" class="container-fluid"
+		style="background-color: #2d333c">
+
+		<div class="footer-container">
+			<div class="footer-content">
+				<div class="footer-content__info">
+					<div class="footer-content__info-content">
+						<div id="address">
+							<h2 class="subtitle">Contacto</h2>
+							<p>GRUPO SANTA ELENA S.A.</p>
+							<p>Oficina Principal: Av. Manuel Olguin Nro. 325 Int. 703 -
+								Santiago de Surco - Lima, Perú</p>
+							<a href="#">deliveryavinka@santaelena.com.pe</a>
+							<div class="footer-medias">
+								<a href="https://www.facebook.com/Avinka.pe/" target="_blank">
+									<i class="fa-brands fa-square-facebook"></i>
+								</a> <a href="https://www.instagram.com/avinka_pe/" target="_blank">
+									<i class="fa-brands fa-instagram"></i>
+								</a> <a
+									href="https://www.youtube.com/channel/UCF3BNWVEDTUCIhC1RqVBy1Q"
+									target="_blank"> <i class="fa-brands fa-youtube"></i>
+								</a>
+							</div>
+						</div>
+						<div id="links">
+							<h2 class="subtitle">Acerca de Avinka</h2>
+							<a href="#">Términos y condiciones</a> <a href="#">Política
+								de privacidad</a> <a href="#">Política de cookies</a> <a href="#">Términos
+								y condiciones</a> <a href="#">Promociones</a> <a href="#">Sugerencia</a>
+
+						</div>
+					</div>
+					<div class="footer-content__info-payments">
+						<div>
+							<h2 class="subtitle">Medios de Pago</h2>
+							<div class="payments-methods">
+								<img src="/assets/icons/MasterCard_early_1990s_logo.svg"
+									alt="Master card"> <img src="/assets/icons/visa.svg"
+									alt="Visa">
+							</div>
+						</div>
+						<div class="footer-content__info-payments__img">
+							<a href="/reclamaciones"> <img
+								src="/assets/images/reclamaciones.png"
+								alt="Libro de reclamaciones">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="footer-content__sponsor">
+					<p>Powered by riqra</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+</body>
+
+
+</html>

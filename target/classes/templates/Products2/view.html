@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:fragment="head">
+<meta charset="UTF-8">
+<!--Responsive-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avinka</title>
+
+<!--CSS Bootstrap-->
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/solid.min.css}" rel="stylesheet">
+<link rel="shortcut icon" href="img/logo.ico" type="image/x-icon">
+
+<!--Application CSS-->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" th:href="@{/css/home.css}">
+<link rel="stylesheet" th:href="@{/css/index.css}">
+<link rel="stylesheet" th:href="@{/css/nabvar.css}">
+<link rel="stylesheet" th:href="@{/css/footer.css}">
+<link rel="stylesheet" th:href="@{/css/product-detail.css}">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+</head>
+
+
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+
+<main>
+	<div class="main-products-container">
+		<div class="main-detail-product">
+			<div class="product-item-detail">
+				<div class="product-path">
+					INICIO > <b th:text="${product.category.name}" > </b>  > <b th:text="${product.name}"> </b>
+				</div>
+				<div class="product-purchase-container">
+					<div class="product-miniature-container">
+						<div class="product-miniature-content">
+							<img src="/assets/images/products/PavoMarinado.png"
+								alt="huevos-pardos">
+						</div>
+					</div>
+					<div class="product-full-img">
+						<img class="product-img"
+							src="/assets/images/products/PavoMarinado.png"
+							alt="huevos-pardos">
+					</div>
+					<div class="product-info">
+						<p id="name" th:text="${product.name}">Huevo Pardo Empacado</p>
+						<p id="description" th:text="${product.description}">Planca X 30 Unidades</p>
+						<p id="price" th:text="${product.price}" >S/. 17.50</p>
+						<p id="igv">Incluye IGV</p>
+
+						<div class="product-quantity">
+							<button class="purchase-btn remove">-</button>
+							<p>0</p>
+							<button class="purchase-btn add">+</button>
+						</div>
+						<div class="detail-favorite">
+							<div class="detail-favorite-icon">
+								<i class="fa-regular fa-heart"></i>
+							</div>
+							<p class="favorite-text">Agregar a favoritos</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="product-detail">
+				<h2>Acerca del Producto</h2>
+				<label >Nombre del producto</label>
+				<p th:text="${product.name}">Huevo Pardo Empacado</p>
+				<label>Descripción</label>
+				<p th:text="${product.description}">Huevo de gallina.</p>
+				<label>Tipo de envase</label>
+				<p th:text="${product.tipoEnvase}">Bandeja de cartón envuelto en poliofina para el huevo
+					seleccionado.</p>
+				<label>Tiempo de vida útil</label>
+				<p th:text="${product.tiempoVida}">3|0 días a temperatura no mayor a 30°C</p>
+				<label>Almacenamiento</label>
+				<p th:text="${product.almacenamiento}">Los huevos deberán almacenarse en ambientes limpios, frescos,
+					secos, apartados de olores externos y focos de contaminación.</p>
+				<label>Reconstitución</label>
+				<p th:text="${product.reconstitucion}">N.A.</p>
+				<label>Forma de consumo y consumidor final</label>
+				<p th:text="${product.consumidorFinal}">Se recomienda lavar los huevos antes de su consumo. El
+					producto debe ser consumido totalmente cocido apto para público en
+					general. El huevo y productos derivados de huevos son considerados
+					alérgenos.</p>
+			</div>
+
+		</div>
+	</div>
+	
+	</main>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

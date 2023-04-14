@@ -1,0 +1,75 @@
+:root {
+  --main-color: #33cc33;
+  --footer-bg: #2d333c;
+  --second-color: #289F28;
+  --third-color: #5CD65C;
+  --text-color: white;
+  --second-bg: #f8f9fa;
+  --fs-lg: 18px;
+  --fs-subtitle: 21px;
+  --fs-regular: 16px;
+  --fs-small: 12px;
+  --fs-semi-regular: 13px;
+
+  --header-size: 163.59px;
+  --header-size-lg: 60px;
+  /* text colors */
+  --text-blue-sm: #407EFF;
+
+  --text-gray-100: #f9fafb;
+  --text-gray-200: #f3f4f6;
+  --text-gray-300: #e5e7eb;
+  --text-gray-400: #d1d5db;
+  --text-gray-500: #9ca3af;
+  --text-gray-600: #6b7280;
+  --text-gray-700: #4b5563;
+  --text-gray-700: #374151;
+
+}
+html {
+  font-family: 'Open sans'
+}
+body {
+  
+  background-color: var(--second-bg);
+}
+header {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+}
+
+main {
+  padding-top: var(--header-size);
+}
+h2 {
+  color: var(--text-gray-700);
+  font-size: 21px;
+}
+h3 {
+  color: var(--text-gray-600);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+ul {
+  list-style-type: none;
+}
+
+.checkbox {
+  width: 20px;
+}
+
+@media (max-width: 1024px) {
+  main {
+    padding-top: var(--header-size-lg);
+  }
+}

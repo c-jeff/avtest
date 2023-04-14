@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+ 
+</head>
+<body >
+	<header th:replace = "layout/layout :: header"></header>
+	<h2></h2>
+	
+	<main>
+	<div class="container">
+	<section class="container mt-4">
+	
+	<div class="container">
+	<div class="card" style="width: 40rem;">
+	  <div class="card-header">
+	    Nueva categoría
+	  </div>
+	  <div class="card-body">
+	  	  
+	  	<div th:if="${mensaje}"
+							class="alert alert-danger alert-dismissable" role="alert"
+							th:text="${mensaje}"></div> 
+	  	<form th:action="@{/categories/savenew}" th:object="${categoryNew}" method="post" >
+		  <div class="mb-3">
+		    <label for="name" class="form-label">Nombre</label>
+		    <input type="text" class="form-control" th:field="*{name}" placeholder="Nombre de la categoría" >
+		    <label for="name" class="form-label">Descripci&#243;n</label>
+		    <input type="text" class="form-control" th:field="*{description}" placeholder="Descripci&#243;n de la categoría" >
+		  </div>
+
+		  <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar</button>
+		</form>
+		<br>
+  		<a th:href="@{/categories}" class="btn btn-outline-primary"> <i class="fas fa-angle-double-left"></i> Regresar</a>
+	  </div>
+	</div>
+	
+	<h1></h1>
+	</div>
+	</section>
+	</div>
+	
+	</main>
+	
+	<footer th:replace = "layout/layout :: footer"></footer>
+ 	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+</html>

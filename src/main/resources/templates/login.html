@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:fragment="head">
+<meta charset="UTF-8">
+<!--Responsive-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avinka</title>
+
+<!--CSS Bootstrap-->
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/solid.min.css}" rel="stylesheet">
+<link rel="shortcut icon" href="img/logo.ico" type="image/x-icon">
+
+<!--Application CSS-->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" th:href="@{/css/home.css}">
+<link rel="stylesheet" th:href="@{/css/index.css}">
+<link rel="stylesheet" th:href="@{/css/nabvar.css}">
+<link rel="stylesheet" th:href="@{/css/session.css}">
+<link rel="stylesheet" th:href="@{/css/footer.css}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+</head>
+<body>
+
+
+	<header th:replace="layout/layout :: header"></header>
+
+	<main>
+		<div class="session-container">
+			<div class="session-content">
+				<h2>Bienvenido</h2>
+
+				<!--
+				<div class="form-sign">
+					<form th:action="@{/signin}" method="post"
+						class="form-signin d-flex flex-column align-items-center">
+						<p class="regular">Inicia sesión con tu cuenta</p>
+						<input type="text" class="form-control" name="username"
+							id="username" placeholder="Usuario" required autofocus> <input
+							type="password" class="form-control mt-3" name="password"
+							id="password" placeholder="Contraseña" required>
+						<div class="checkbox mb-3"></div>
+						<button class="btn btn-lg btn-primary btn-block w-100"
+							type="submit" name="btn-ingresar">Login</button>
+
+					</form>
+					
+					 -->
+				<div class="session-content__signin">
+					<form th:action="@{/signin}" method="post" class="form-signin d-flex flex-column align-items-center">
+       				
+       				<input type="text" class="form-control" name="username" id="username" placeholder="Username" required autofocus>
+       				<input type="password"  class="form-control mt-3" name="password" id="password"  placeholder="Password" required>
+       				<div class="checkbox mb-3">
+       				
+       			</div>
+       			<button class="btn btn-lg btn-outline-success btn-block w-100"  type="submit" name="btn-ingresar" >Login</button>
+       	       <a class="session-anchor" href="#">¿Olvidaste tu contraseña?</a>
+     </form>
+					
+					
+					<!--  <div id="signin" class="session-content__signin-session">
+						<p class="regular">Inicia sesión con tu cuenta</p>
+						<input class="session-input" placeholder="Usuario" type="text">
+						<input class="session-input" placeholder="Contraseña" type="text">
+						<button class="session-button signin">Ingresar</button>
+						<a class="session-anchor" href="@{/signin}">¿Olvidaste tu contraseña?</a>
+					</div>
+						-->
+					<div id="line"></div>
+					<div id="signup" class="session-content__signin-session">
+						<p class="regular">¿Aun no tienes cuenta?</p>
+						<a th:href="@{/signup}" class="session-button signup">Registrate</a>
+					</div>
+ 				
+
+				</div>
+
+			</div>
+	</main>
+
+	
+	<footer th:replace="layout/layout :: footer"></footer>
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+
+</body>
+</html>

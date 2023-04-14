@@ -1,0 +1,147 @@
+main {
+  height: 100vh;
+}
+.session-container {
+  background-color: var(--second-bg);
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.session-content {
+  width: 1000px;
+  background-color: white;
+  border: 1px solid transparent ;
+  padding: 20px 50px;
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.session-content h2 {
+  text-align: center;
+  font-size: var(--fs-subtitle);
+  font-weight: 600;
+}
+
+.session-content__signin {
+  width: 100%;
+  display: flex;
+  gap: 30px;
+}
+
+.session-content__signin-session {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 50%;
+}
+.session-content__signin-session .session-anchor {
+  font-weight: 600;
+  font-size: var(--fs-semi-regular);
+  color: var(--text-blue-sm);
+}
+
+#line {
+  width: 2px;
+  background-color: #CFD6DD;
+}
+.regular {
+  font-weight: 600;
+  font-size: var(--fs-regular);
+  color: var(--text-gray-600);
+}
+.session-button {
+  text-align: center;
+  border: none;
+  border-radius: 2px;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: var(--fs-regular);
+}
+
+.signin {
+  color: white;
+  background-color: var(--main-color);
+}
+
+.signup {
+  background-color: white;
+  color: var(--main-color);
+  border: 1px solid var(--main-color);
+}
+.signup:hover {
+  background-color: var(--third-color);
+  color: white;
+}
+
+.session-input {
+  padding: 10px;
+  font-weight: 500;
+  border: 1px solid var(--text-gray-300);
+  outline: var(--main-color);
+}
+input[type="text"]:focus {
+  border-color: var(--main-color);
+}
+
+/* SIGNUP */
+
+.session-content__signin-conditions {
+  font-size: var(--fs-semi-regular);
+}
+
+.session-list_item {
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
+}
+
+@media (max-width: 1536px) {
+  main {
+    height: 800px;
+  }
+}
+
+@media (max-width: 1024px) {
+  main {
+    height: 900px;
+  }
+}
+
+@media (max-width: 768px) {
+  #line {
+    display: none;
+  }
+  main {
+    height: 1000px;
+  }
+
+  .session-content__signin {
+    flex-direction: column;
+  }
+  
+  .session-content h2 {
+    margin-top: 20px;
+  }
+  .session-content__signin {
+    gap: 20px;
+  }
+  .session-content__signin-session {
+    width: 100%;
+  }
+  #signup {
+    order: 1;
+  }
+  #signin {
+    order: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .session-content {
+    margin: 0 40px 40px 40px;
+  }
+}

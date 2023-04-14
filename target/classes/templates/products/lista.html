@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+
+<header th:replace = "layout/layout :: header"></header>
+
+	<main>
+	<div class="container">
+	<section class="container mt-4" style="height: 5000rem;">
+	  <form th:fragment="form" class="d-flex mt-3 mb-3" th:action="@{search/products}" th:object="${productSearch}" method="get">
+		 
+	                <input class="form-control me-2" type="search" th:field="*{name}" placeholder="Search product" aria-label="Search">
+	                <button class="btn btn-light" type="submit"><i class="fas fa-search"></i></button>
+	      
+	     </form>
+
+		<h1></h1>
+		 <a th:href="@{/products/new}" class="btn btn-primary"> <i class="fas fa-plus"></i> New</a>
+		<h1></h1>
+		<div class="row">
+		  
+		  <div th:each="product : ${products}" class="col-sm-3">
+		    <div class="card">
+		      <div class="card-header">
+		      <h4 th:text="${product.name}"></h4>
+		      </div>
+		      <div class="card-body">
+		        <!--  <h5 class="card-title" th:text="${show.name}">Special title treatment</h5>-->
+			    <h5 class="card-title" th:text="'Category: '+${product.category.name}">With supporting text below as a natural lead-in to additional content.</h5>
+			    <h6 class="card-text" th:text="'Description: '+${product.description}"></h6>
+			    <p class="card-text" th:text="'Stock: '+${product.stock}">.</p>
+			    <p class="card-text" th:text="'Description: '+${product.description}"></p>
+			    <p class="card-text" th:text="'Price: '+${product.price}"></p>
+			    <p class="card-text" th:text="'Price: '+${product.price}"></p>
+			    <p class="card-text" th:text="'Tipo de envase: '+${product.tipoEnvase}"></p>
+		        <p class="card-text" th:text="'Tiempo de vida útil: '+${product.tiempoVida}"></p>
+		        <p class="card-text" th:text="'Almacenamiento: '+${product.almacenamiento}"></p>
+		        <p class="card-text" th:text="'Reconstitución: '+${product.reconstitucion}"></p>
+		        <p class="card-text" th:text="'Forma de consumo y consumidor final: '+${product.consumidorFinal}"></p>
+		        
+		        <a th:href="@{'/products/'+${product.id}+'/edit'}" class="btn btn-outline-warning mt-3"><i class="fas fa-edit"></i> Edit</a>
+		        <a th:href="@{'/products/del/'+${product.id}}" class="btn btn-danger mt-3"><i class="fas fa-trash-alt"></i> Delete</a>
+		      </div>
+		    </div>
+		  </div>
+
+		</div>
+		
+	</section>
+	</div>
+	
+	<h1></h1>
+	</main>
+	<h1>   </h1>
+
+
+
+<footer th:replace = "layout/layout :: footer"></footer>
+ 	
+ 	
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+</html>

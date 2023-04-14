@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+	<header th:replace = "layout/layout :: header"></header>
+	
+	<main>
+	<div class="container">
+	<section class="container mt-4">
+	<div class="card" style="width: 40rem;">
+	  <div class="card-header">
+	    &#161;El producto se agreg&#243; correctamente&#33;
+	  </div>
+	  <div class="card-body">
+	  	<p>
+	  		Id: <span th:text="${product.id}"></span> <br>
+	  		Nombre: <span th:text="${product.name}"></span> <br>
+	  		Descripci&#243;n: <span th:text="${product.description}"></span> <br>
+	  		Stock: <span th:text="${product.stock}"></span> <br>
+	  		Precio: <span th:text="${product.price}"></span> <br>
+	  		Categoría: <span th:text="${product.category.name}"></span> <br>
+	  		Tipo de envase: <span th:text="${product.tipoEnvase}"></span> <br>
+	  		Tiempo de vida: <span th:text="${product.tiempoVida}"></span> <br>
+	  		Almacenamiento: <span th:text="${product.almacenamiento}"></span> <br>
+	  		Reconstitución: <span th:text="${product.reconstitucion}"></span> <br>
+	  		Consumidor Final: <span th:text="${product.consumidorFinal}"></span> <br>
+	  		
+	  	</p>
+	  	
+	    
+	    <a th:href="@{/products}" class="btn btn-primary"> <i class="fas fa-angle-double-left"></i> Return</a>
+	  </div>
+	</div>
+	</section>
+	</div>
+	</main>
+	<footer th:replace = "layout/layout :: footer"></footer>
+ 	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	
+</body>
+</html>

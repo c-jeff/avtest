@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+
+
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+
+	<!-- MAIN CONTENT -->
+	
+	<main>
+	<h1></h1>
+	<div class="container">
+	<h1></h1>
+	<section class="container mt-4">
+	<h1></h1>
+		<!-- 
+		<form class="d-flex " th:action="@{/search/products}"
+									th:object="${productSearch}" method="get">
+									<input class="form-control me-2" type="search"
+										th:field="*{name}" placeholder="¿Qué producto estás buscando?"
+										aria-label="Search">
+									<button class="btn btn-light" type="submit">Buscar</button>
+									
+								
+								</form>
+								 -->
+								<h1></h1>
+								</section>
+								<h1></h1>
+								</div>
+								
+		<div class="image-container">
+			<ul>
+				<li><img src="/assets/images/img1.png" alt="img1"></li>
+				<li><img src="/assets/images/img2.png" alt="img2"></li>
+			</ul>
+		</div>
+
+
+
+		<div class="main-products-container">
+			<div class="main-product-content">
+				<h2>Productos destacados</h2>
+				<div id="products" class="products">
+
+					<div class="product-item" th:each="product : ${products}" onclick="redirigirPagina()" >
+						
+						<div class="product-img-container">
+							<img class="product-img" th:src="@{'/assets/images/products/'+${product.imagen}}">
+						</div>
+						
+						<div class="product-favorite">
+							<div class="favorite-icon">
+								<i class="fa-regular fa-heart"></i>
+							</div>
+						</div>
+						<p id="name" th:text="${product.name}"></p>
+						<p id="description" th:text="'Description: '+${product.description}"></p>
+						<p id="price" th:text="'S/ '+${product.price}"></p>
+						<p id="igv">Incluye IGV</p>
+						<button class="product-add">
+							<a style="color:#FFFFFF" th:href="@{'/products2/' + ${product.id} }">
+							+ 
+						</a>
+						</button>
+						
+					</div>
+
+
+				</div>
+
+			</div>
+		</div>
+		
+
+
+
+
+
+<!-- codigo Alessandro 
+
+		<div class="row">
+
+			<div th:each="product : ${products}" class="col-sm-3">
+				<div class="card">
+					<div class="card-header">
+						<h4 th:text="${product.name}"></h4>
+					</div>
+					<div class="card-body">
+						
+						<h5 class="card-title"
+							th:text="'Category: '+${product.category.name}">With
+							supporting text below as a natural lead-in to additional content.</h5>
+						<h6 class="card-text"
+							th:text="'Description: '+${product.description}"></h6>
+						<p class="card-text" th:text="'Stock: '+${product.stock}">.</p>
+						<p class="card-text"
+							th:text="'Description: '+${product.description}"></p>
+						<p class="card-text" th:text="'Price: '+${product.price}"></p>
+						<p class="card-text" th:text="'Price: '+${product.price}"></p>
+						<p class="card-text"
+							th:text="'Tipo de envase: '+${product.tipoEnvase}"></p>
+						<p class="card-text"
+							th:text="'Tiempo de vida útil: '+${product.tiempoVida}"></p>
+						<p class="card-text"
+							th:text="'Almacenamiento: '+${product.almacenamiento}"></p>
+						<p class="card-text"
+							th:text="'Reconstitución: '+${product.reconstitucion}"></p>
+						<p class="card-text"
+							th:text="'Forma de consumo y consumidor final: '+${product.consumidorFinal}"></p>
+
+						<a th:href="@{'/products2/' + ${product.id} }"
+							class="btn btn-outline-info"> <i class="fas fa-search"></i>
+							View
+						</a>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+-->
+	<section class="container">
+	<form action="submit" class="mb-4" th:action="@{/assistant/sendMessage}" th:object="${message}" method="POST">
+	  <div class="form-row">
+	    <div class="col">
+	      <input type="text" th:field="*{message}" placeholder="..." required>
+	    </div>
+	  </div>
+	  
+	  <button type="submit" class="btn btn-info">Enviar</button>
+	  
+	</form>
+	
+	<p th:text="${response}" class="form-text text-success"></p>
+	</section>
+
+	</main>
+
+
+	<footer th:replace="layout/layout :: footer"></footer>
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+
+
+</body>
+</html>
