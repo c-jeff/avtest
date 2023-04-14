@@ -24,13 +24,13 @@ public class AssistantController {
 			WebClient.Builder builder = WebClient.builder();
 			
 			//enviar mensaje de usuario a dialogflow mediante servidor node
-			builder.build().post().uri("localhost:5000").bodyValue(message).retrieve().bodyToMono(String.class).block();
+			builder.build().post().uri("https://18c1-2001-1388-6c0-1e3d-f4b1-1756-b0cc-25f.ngrok-free.app").bodyValue(message).retrieve().bodyToMono(String.class).block();
 			
 			System.out.println("----------------------------------------------");
 			System.out.println("Enviado: " + message.getMessage());
 			
 			//obtener respuesta de dialogflow desde servidor node
-			String res = builder.build().get().uri("localhost:5000").retrieve().bodyToMono(String.class).block();
+			String res = builder.build().get().uri("https://18c1-2001-1388-6c0-1e3d-f4b1-1756-b0cc-25f.ngrok-free.app").retrieve().bodyToMono(String.class).block();
 			
 			System.out.println("----------------------------------------------");
 			System.out.println("Recibido: " + res);
